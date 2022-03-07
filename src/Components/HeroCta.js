@@ -19,6 +19,7 @@ function HeroCta() {
 }
 
 const Container = styled.section`
+    position: relative;
     display: flex;
     align-items: flex-start;
     padding: 0 4%;

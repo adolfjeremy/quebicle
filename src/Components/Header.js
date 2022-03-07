@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import Buttons from "./Buttons";
 import MenuIcon from "@mui/icons-material/Menu";
@@ -6,8 +6,19 @@ import CloseIcon from "@mui/icons-material/Close";
 
 function Header() {
     const [navbarStatus, setNavbarStatus] = useState(false);
+    const [navbarScrollStatus, setNavbarScrollStatus] = useState(false);
+    useEffect(() => {
+        window.addEventListener("scroll", () => {
+            window.scrollY > 100
+                ? setNavbarScrollStatus(true)
+                : setNavbarScrollStatus(false);
+        });
+        return () => {
+            window.removeEventListener("scroll");
+        };
+    }, []);
     return (
-        <Container>
+        <Container addBackground={navbarScrollStatus}>
             <AppName href="/">
                 Queb<strong>icle</strong>
             </AppName>
@@ -34,6 +45,8 @@ const Container = styled.header`
     left: 0;
     right: 0;
     z-index: 10;
+    background: ${(props) => (props.addBackground ? "rgb(20, 20, 20);" : "")};
+    transition: background 250ms ease-in-out;
     @media (max-width: 1024px) {
         justify-content: space-between;
     }
