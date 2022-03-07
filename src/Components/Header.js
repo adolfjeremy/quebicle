@@ -18,7 +18,13 @@ function Header() {
         };
     }, []);
     return (
-        <Container addBackground={navbarScrollStatus}>
+        <Container
+            addBackground={navbarScrollStatus}
+            onClick={(event) => {
+                setNavbarStatus(false);
+                event.stopPropagation();
+            }}
+        >
             <AppName href="/">
                 Queb<strong>icle</strong>
             </AppName>
@@ -30,7 +36,12 @@ function Header() {
                 </LinkContainer>
                 <Buttons className="login_button" IsButton name="Login" />
             </NavBar>
-            <HamburgerButton onClick={() => setNavbarStatus(!navbarStatus)}>
+            <HamburgerButton
+                onClick={(event) => {
+                    setNavbarStatus(!navbarStatus);
+                    event.stopPropagation();
+                }}
+            >
                 {navbarStatus ? <CloseIcon /> : <MenuIcon />}
             </HamburgerButton>
         </Container>
