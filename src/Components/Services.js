@@ -6,7 +6,7 @@ import "slick-carousel/slick/slick-theme.css";
 import ServiceItem from "./ServiceItem";
 import responsive from "./../assets/images/responsive.png";
 
-function Offers() {
+function Services() {
     var settings = {
         dots: false,
         infinite: true,
@@ -130,4 +130,4 @@ const FeatureList = styled(Slider)`
     }
 `;
 
-export default Offers;
+export default Services;

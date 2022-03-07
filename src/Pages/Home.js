@@ -1,12 +1,12 @@
 import React from "react";
 import HeroCta from "../Components/HeroCta";
-import Offers from "../Components/Offers";
+import Services from "../Components/Services";
 
 function Home() {
     return (
         <main>
             <HeroCta />
-            <Offers />
+            <Services />
         </main>
     );
 }
